@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>Roasted Ground</title>
+	<link rel="stylesheet" href="onepcssgrid.css" />
+	<link rel="stylesheet" href="style.css" />
+   <script src="javascript.js"></script>
+   <script src="products.js"></script>
+</head>
+<body onload = "main();">
+<div class="onepcssgrid-1000">
+	
+<!-- begin first row, navigation bar -->
+   <div class="onerow">
+		<div class="col12 last">
+      <div id="navbar">
+        <a class="logo" href="/"></a>
+        <ul id="nav" class="rest">
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="products.html" class="current">Our Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="index.html">Index</a></li>
+      </ul>
+    </div><!--end navbar div -->
+    </div>
+	</div><!-- end .onerow -->
+
+<!-- begin second row, filters and first line of products -->
+   <div class="onerow">
+      <div class="col3">
+         <h2>Filters</h2>
+<!-- Price Filter -->         
+         <br>Price</br>
+         <form action="" onclick="filter()">
+            <input id="priceAscend" type="radio" name="price" value="priceAscend">Price Ascending<br/>
+            <input id="priceDescend" type="radio" name="price" value="priceDescend">Price Descending
+         </form>  
+<!-- Coffee Region Filter -->         
+         <br>Region</br>
+         <select id="regionDropdown" onchange="filter()">
+           <option value=""></option>
+           <option value="latinamerica">Latin America</option>
+           <option value="africa">Africa</option>
+           <option value="oceania">Oceania</option>
+           <option value="asia">Asia</option>
+         </select>
+<!-- Coffee Type Filter -->  
+         <br/>       
+         <br>Coffee Type</br>
+         <form onclick="filter()">
+           <input id="regularCheckbox" type="checkbox" name="regular" value="regular">Regular Coffee<br/>
+           <input id="decafCheckbox" type="checkbox" name="decaf" value="decaf">Decaf Coffee<br/>
+         </form>
+<!-- Clear All Button -->           
+      <br/> 
+      <button type="button" onclick="clearFilters()">Clear all filters</button>         
+      </div><!-- end filters -->
+
+      <div class="col9 last">
+         <div class="products">
+         	<div id="coffee_products" class="productrow">
+
+          </div><!-- end embedded .productrow         -->           
+         </div>  <!-- end products --> 
+      </div><!-- end .col9 -->
+   </div><!-- end .onerow -->
+
+
+</div> <!-- end .onepcssgrid-1200 -->
+</body>
+</html>
