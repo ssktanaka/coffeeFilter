@@ -1,75 +1,77 @@
 <!doctype html>
-
 <html>
-
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<title>Roasted Ground</title>
-	<link rel="stylesheet" href="onepcssgrid.css" />
-	<link rel="stylesheet" href="style.css" />
-   <script src="javascript.js"></script>
-   <script src="products.js"></script>
+	<link rel="stylesheet" href="onepcssgrid.css"/>
+  <link rel="stylesheet" href="bootstrap.css"/>
+  <script src="products.js"></script>
+  <script src="javascript.js"></script>
+  <link rel="stylesheet" href="style.css"/>
 </head>
-<body onload = "main();">
+<body onload="main();">
 <div class="onepcssgrid-1000">
-	
 <!-- begin first row, navigation bar -->
-   <div class="onerow">
-		<div class="col12 last">
+  <div class="onerow">
+	  <div class="col12 last">
       <div id="navbar">
-        <a class="logo" href="/"></a>
+        <a class="logo" href="index.html"></a>
         <ul id="nav" class="rest">
           <li><a href="contact.html">Contact</a></li>
           <li><a href="products.html" class="current">Our Products</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="index.html">Index</a></li>
-      </ul>
-    </div><!--end navbar div -->
-    </div>
-	</div><!-- end .onerow -->
-
-<!-- begin second row, filters and first line of products -->
-   <div class="onerow">
-      <div class="col3">
-         <h2>Filters</h2>
+        </ul> 
+      </div><!--end #navbar -->
+    </div><!--end .col12 -->
+  </div><!-- end .onerow -->
+<!-- begin second row, filters -->
+  <div class="onerow">
+    <div class="col3">
 <!-- Price Filter -->         
-         <br>Price</br>
-         <form action="" onclick="filter()">
-            <input id="priceAscend" type="radio" name="price" value="priceAscend">Price Ascending<br/>
-            <input id="priceDescend" type="radio" name="price" value="priceDescend">Price Descending
-         </form>  
+      <h2><small>Filter by Price</small></h2>
+        <div class="radio">
+          <form action="" onclick="filter();">
+            <input id="priceAscend" type="radio" name="price" value="priceAscend">Ascending Price</input>
+            <!-- Break for legibility -->        
+            <br/>
+            <input id="priceDescend" type="radio" name="price" value="priceDescend">Descending Price</input>
+          </form> 
+        </div>   
 <!-- Coffee Region Filter -->         
-         <br>Region</br>
-         <select id="regionDropdown" onchange="filter()">
-           <option value=""></option>
-           <option value="latinamerica">Latin America</option>
-           <option value="africa">Africa</option>
-           <option value="oceania">Oceania</option>
-           <option value="asia">Asia</option>
-         </select>
+      <h2><small>Region</small></h2>
+        <select id="regionDropdown" class="form-control" onchange="filter();">
+          <option value=""></option>
+          <option value="latinamerica">Latin America</option>
+          <option value="africa">Africa</option>
+          <option value="oceania">Oceania</option>
+          <option value="asia">Asia</option>
+        </select>
 <!-- Coffee Type Filter -->  
-         <br/>       
-         <br>Coffee Type</br>
-         <form onclick="filter()">
-           <input id="regularCheckbox" type="checkbox" name="regular" value="regular">Regular Coffee<br/>
-           <input id="decafCheckbox" type="checkbox" name="decaf" value="decaf">Decaf Coffee<br/>
-         </form>
+      <h2><small>Coffee Type</small></h2>
+        <div class="checkbox">
+          <form onclick="filter();">
+            <input id="regularCheckbox" type="checkbox" name="regular" value="regular">Regular Coffee</input>
+            <!-- Break for legibility -->        
+            <br/>
+            <input id="decafCheckbox" type="checkbox" name="decaf" value="decaf">Decaf Coffee</input>
+            <!-- Break for legibility -->        
+            <br/>            
+          </form>
+        </div>
 <!-- Clear All Button -->           
-      <br/> 
-      <button type="button" onclick="clearFilters()">Clear all filters</button>         
-      </div><!-- end filters -->
-
-      <div class="col9 last">
-         <div class="products">
-         	<div id="coffee_products" class="productrow">
-
-          </div><!-- end embedded .productrow         -->           
-         </div>  <!-- end products --> 
-      </div><!-- end .col9 -->
-   </div><!-- end .onerow -->
-
-
+      <!-- Break for legibility -->        
+      <br/>     
+      <button class="btn btn-default" type="button" onclick="clearFilters();">Clear all filters</button>
+    </div><!-- end .col3, filters -->
+<!-- products -->
+    <div class="col9 last">
+      <div class="products">
+       	<div id="coffee_products" class="productrow">
+        </div><!-- end embedded .productrow  -->           
+      </div>  <!-- end products --> 
+    </div><!-- end .col9 -->
+  </div><!-- end .onerow -->
 </div> <!-- end .onepcssgrid-1200 -->
 </body>
 </html>

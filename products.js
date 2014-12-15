@@ -1,3 +1,4 @@
+//array of all coffee products
 var coffeeProductsArray = [
    {
       Id: "coffeebeans1",

@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Roasted Ground</title>
+	<link rel="stylesheet" href="onepcssgrid.css"/>
+  <link rel="stylesheet" href="bootstrap.css"/>
+   <link rel="stylesheet" href="style.css"/>
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script src="contact.js"></script>
+</head>
+<body onload>
+<div class="onepcssgrid-1000">
+<!-- begin first row, navigation bar -->
+  <div class="onerow">
+	  <div class="col12 last">
+      <div id="navbar">
+        <a class="logo" href="index.html"></a>
+        <ul id="nav" class="rest">
+          <li><a href="contact.html" class="current">Contact</a></li>
+          <li><a href="products.html">Our Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="index.html">Index</a></li>
+        </ul>
+      </div><!--end #navbar -->
+    </div><!--end .col12 -->
+	</div><!-- end .onerow -->
+<!-- begin second row, main content-->
+  <div class="onerow">
+    <div class="col2"></div><!-- buffer column -->
+    <div class="col8">
+      <h2>Contact Us</h2>
+      <!-- begin form-->
+      <div id="form">
+        <form name role="form">
+        <!-- get name-->
+          <div class="form-group">
+            <input type="text" class="form-control" id="inputName" placeholder="Please enter your name" onblur="validateName();"></input>
+            <div id="name_error" class="error" display="none"></div>        
+          </div>
+        <!-- get email-->            
+          <div class="form-group">
+            <input type="email" class="form-control" id="inputEmail" placeholder="Please enter your email" onblur="validateEmail();"></input>
+            <div id="email_error" class="error" display="none"></div>        
+          </div>
+        <!-- get subject-->            
+          <div class="form-group">
+            <select id="inputSubject" class="form-control" onclick="validateInput();">
+                <option value="Choose a Subject">Choose a subject</option>
+                <option value="Your Order">Your Order</option>
+                <option value="Coffee Products">Coffee Products</option>
+                <option value="Suggestion">Suggestion</option>
+                <option value="Website or Mobile App">Website or Mobile App</option>
+                <option value="All Other Inquiries">All Other Inquiries</option>
+            </select>
+          </div>
+        <!-- get message-->     
+          <div class="form-group">
+            <textarea id="inputMessage" class="form-control" rows="3" onfocus="validateInput();" placeholder="Type your message here"></textarea>
+            <div id="sendError" class="error" display="none"></div>  
+            <div id="sent" class="sent" display="none"></div>      
+          </div>
+          <!-- Break for legibility -->        
+          <br/>  
+          <!-- send message-->   
+          <div class="form-group">
+            <button type="button" class="btn btn-default btn-lg" onclick="validateFields();">Send</button>
+          </div>
+     </form>
+    </div><!-- end #form -->
+  </div><!-- end col8 -->
+  <div class="col2"></div><!-- buffer column -->
+</div><!-- end .onerow -->
+</div> <!-- end .onepcssgrid-1200 -->
+</body>
+</html>

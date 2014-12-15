@@ -3,35 +3,28 @@ function main() {
 	showProducts();
 }
 
-
-function showProducts() {
-	var products = document.getElementsByClassName("gal4");
-	for(var i = 0; i < products.length; i++) {
-    	products[i].style.display = "inline";
-	}	
-}
-
 function buildProducts(coffeeProductsArray){
 	//get section coffee div
 	var section = document.getElementById("coffee_products");
 	var allCoffeeDivs = "";
 	//set up divs for individual coffee products
 	for (var i = 0; i < coffeeProductsArray.length; i++) {
-		newDiv = "<div id='"+ coffeeProductsArray[i].Id + "' class='gal4'></div>";
+		var newDiv = "<div id='"+ coffeeProductsArray[i].Id + "' class='gal4'></div>";
 		allCoffeeDivs = allCoffeeDivs.concat(newDiv);
 	}
 	section.innerHTML = allCoffeeDivs;	
 	//iterate over coffee array, and fill in each div tag with coffee information
 	for (var i = 0; i < coffeeProductsArray.length; i++) {
-		myCurrentTag = document.getElementById(coffeeProductsArray[i].Id);
+		var myCurrentTag = document.getElementById(coffeeProductsArray[i].Id);
 		var productInfo;
-		productInfo = "<img src='CoffeePhotos/CoffeeProducts/" + coffeeProductsArray[i].Id + ".jpg' alt='Coffee Beans Product'><p>";
-		productInfo = productInfo.concat("<div id = 'CoffeeName'>" + coffeeProductsArray[i].Name + "</div>");
+		//add all relevant info for each coffee product
+		productInfo = "<img src='CoffeePhotos/CoffeeProducts/" + coffeeProductsArray[i].Id + ".jpg' alt='Coffee Beans Product'>";
+		productInfo = productInfo.concat("<div id = 'CoffeeName'><h4>" + coffeeProductsArray[i].Name + "</h4></div>");
 		productInfo = productInfo.concat("<div id = 'CoffeeVariety'>Variety: " + coffeeProductsArray[i].Variety + "</div>");	
 		productInfo = productInfo.concat("<div id = 'CoffeeRegion'>Region: " + coffeeProductsArray[i].Region + "</div>");	
 		productInfo = productInfo.concat("<div id = 'CoffeeType'>" + coffeeProductsArray[i].Type + "</div>");	
-		productInfo = productInfo.concat("<div id = 'CoffeePrice'>Price: €" + coffeeProductsArray[i].Price + "</div>");	
-		productInfo = productInfo.concat("<button type='button'>Add to Cart</button>");
+		productInfo = productInfo.concat("<div id = 'CoffeePrice'><p>Price: €" + coffeeProductsArray[i].Price + "</p></div>");	
+		productInfo = productInfo.concat("<button type='button' class = 'btn btn-primary'>Add to Cart</button>");
 		myCurrentTag.innerHTML = productInfo;
 		//add region class
 		if (coffeeProductsArray[i].Region == "Asia") {
@@ -56,10 +49,19 @@ function buildProducts(coffeeProductsArray){
 	}
 }
 
+function showProducts() {
+	var products = document.getElementsByClassName("gal4");
+	//iterate over each product div, and display product inline
+	for(var i = 0; i < products.length; i++) {
+    	products[i].style.display = "inline";
+	}	
+}
+
 function filter() {
 	var updatedCoffeeProductsArray = [];
 	//check first if price radio button is checked, because then list must be reordered
     var priceChecked = checkPriceStatus();
+    //if price radio button is checked, create new sorted coffee products array and build a new display
 	if (priceChecked) {
 		updatedCoffeeProductsArray = sortByPrice(coffeeProductsArray);
 		buildProducts(updatedCoffeeProductsArray);
@@ -75,8 +77,6 @@ function filter() {
 		var coffeeTypeStatus = filterByCoffeeType(elems[i]);
 		displayFilteredProducts(regionStatus, coffeeTypeStatus, elems[i]);
 	}
-
-
 }
  
 function checkRegion(elems) {
@@ -112,7 +112,7 @@ function filterByCoffeeType(elems){
 function checkPriceStatus() {
 	var priceAscend = document.getElementById("priceAscend");
 	var priceDescend = document.getElementById("priceDescend");
-	//check if price checkbox is checked
+	//check if price checkbox is checked. return state of checkbox.
 	if (priceAscend.checked) {
 		return true;
 	} else if (priceDescend.checked){
@@ -134,6 +134,7 @@ function displayFilteredProducts(regionStatus, coffeeTypeStatus, elems) {
 function sortByPrice(coffeeProductsArray) {
 	var priceAscend = document.getElementById("priceAscend");
 	var priceDescend = document.getElementById("priceDescend");
+	//depending on which box is checked, sort coffeeProductsArray in ascending or descending order
 	if (priceAscend.checked) {
 		coffeeProductsArray.sort(function(a, b){
  			return a.Price-b.Price;
@@ -154,7 +155,7 @@ function clearFilters() {
 	for(var i = 0; i < elems.length; i++) {
 		elems[i].style.display = "inline";
 	}
-	//Uncheck decaf and regular boxes.
+	//Uncheck decaf and regular boxes, clear region dropdown, uncheck price boxes
 	document.getElementById("decafCheckbox").checked = false;
 	document.getElementById("regularCheckbox").checked = false;
 	document.getElementById("regionDropdown").selectedIndex = "0";
@@ -162,3 +163,4 @@ function clearFilters() {
 	document.getElementById("priceAscend").checked = false;
 	document.getElementById("priceDescend").checked = false;
 }
+
