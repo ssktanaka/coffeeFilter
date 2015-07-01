@@ -2,7 +2,7 @@
 Roasted Ground
 ====================
 
-This repository contains files and assets for a coffee company called Roasted Ground. The full digital product package includes brand identity work, mobile and desktop website designs, and an interactive prototype. 
+This repository contains files and assets for a coffee company called Roasted Ground. The full digital product package includes brand identity work, mobile and desktop website designs, and an interactive prototype in HTML, CSS, and Javascript.
 
 ### Overview of Work
 
